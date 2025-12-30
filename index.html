@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python OOP Complete Guide - Zero to Hero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #16a085;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            color: #27ae60;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .concept-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .example-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .practice-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .solution-box {
+            background: #f3e5f5;
+            border-left: 5px solid #9c27b0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #e74c3c;
+        }
+        
+        pre code {
+            background: transparent;
+            color: #f8f8f2;
+            padding: 0;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toc {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 10px;
+        }
+        
+        .toc a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            background: #fff59d;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .note {
+            background: #fff9c4;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .tip {
+            background: #e0f2f1;
+            border-left: 4px solid #009688;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .download-btn {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .header-section h1 {
+            color: white;
+            border: none;
+            margin-bottom: 10px;
+        }
+        
+        .header-section p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+            
+            pre {
+                page-break-inside: avoid;
+            }
+            
+            h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-section">
+            <h1>🐍 Python OOP Complete Guide</h1>
+            <p><strong>From Zero to Hero</strong></p>
+            <p>Comprehensive Learning Resource with Concepts, Examples & Solutions</p>
+            <p style="font-size: 0.9em; margin-top: 20px;">📖 Everything you need to master Object-Oriented Programming in Python</p>
+        </div>
+
+        <div class="note">
+            <strong>💡 How to Use This Guide:</strong>
+            <ul style="margin-top: 10px;">
+                <li>Read concepts carefully</li>
+                <li>Run all code examples</li>
+                <li>Attempt practice questions before viewing solutions</li>
+                <li>Build the real-world projects</li>
+                <li>Save this page (Ctrl+S or Cmd+S) or Print to PDF (Ctrl+P)</li>
+            </ul>
+        </div>
+
+        <div class="toc">
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction to OOP</a></li>
+                <li><a href="#classes">2. Classes and Objects</a></li>
+                <li><a href="#self">3. Understanding self in Detail</a></li>
+                <li><a href="#pillars">4. The Four Pillars of OOP</a>
+                    <ul style="margin-left: 20px;">
+                        <li><a href="#encapsulation">4.1 Encapsulation</a></li>
+                        <li><a href="#inheritance">4.2 Inheritance</a></li>
+                        <li><a href="#polymorphism">4.3 Polymorphism</a></li>
+                        <li><a href="#abstraction">4.4 Abstraction</a></li>
+                    </ul>
+                </li>
+                <li><a href="#advanced">5. Advanced OOP Concepts</a></li>
+                <li><a href="#magic">6. Magic Methods</a></li>
+                <li><a href="#patterns">7. Design Patterns</a></li>
+                <li><a href="#projects">8. Real-World Projects</a></li>
+                <li><a href="#solutions">9. Complete Solutions</a></li>
+                <li><a href="#interview">10. Interview Questions</a></li>
+                <li><a href="#best">11. Best Practices</a></li>
+            </ul>
+        </div>
+
+        <h2 id="intro">1. Introduction to OOP</h2>
+        
+        <div class="concept-box">
+            <h3>📚 What is OOP?</h3>
+            <p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code around <strong>objects</strong> rather than functions and logic. It models real-world entities as objects with properties (attributes) and behaviors (methods).</p>
+            
+            <h4>Why OOP?</h4>
+            <ul>
+                <li><strong>Code Reusability:</strong> Write once, use many times</li>
+                <li><strong>Better Organization:</strong> Logical grouping of related data and functions</li>
+                <li><strong>Easier Maintenance:</strong> Changes in one place affect all instances</li>
+                <li><strong>Real-World Modeling:</strong> Represents real entities naturally</li>
+                <li><strong>Encapsulation:</strong> Data hiding and protection</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Example: Procedural vs OOP</h3>
+            <pre><code># Without OOP (Procedural Approach)
+car1_brand = "Toyota"
+car1_model = "Camry"
+car1_year = 2020
+
+def start_car1():
+    print(f"{car1_brand} {car1_model} is starting")
+
+start_car1()
+
+# Problem: What if you need 10 cars? 
+# You'd need 30 variables and 10 functions!
+
+# With OOP (Object-Oriented Approach)
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
+    
+    def start(self):
+        print(f"{self.brand} {self.model} is starting")
+
+# Create multiple cars easily
+car1 = Car("Toyota", "Camry", 2020)
+car2 = Car("Honda", "Civic", 2021)
+car3 = Car("Ford", "Mustang", 2022)
+
+car1.start()  # Toyota Camry is starting
+car2.start()  # Honda Civic is starting
+car3.start()  # Ford Mustang is starting</code></pre>
+        </div>
+
+        <div class="practice-box">
+            <h3>✏️ Practice Questions</h3>
+            <ol>
+                <li>What are the main differences between procedural and object-oriented programming?</li>
+                <li>List 5 real-world objects and identify their attributes and behaviors.</li>
+                <li>Why is OOP considered better for large-scale applications?</li>
+            </ol>
+        </div>
+
+        <h2 id="classes">2. Classes and Objects</h2>
+
+        <div class="concept-box">
+            <h3>📚 Core Concepts</h3>
+            <ul>
+                <li><strong>Class:</strong> A blueprint/template for creating objects</li>
+                <li><strong>Object:</strong> An instance of a class with actual values</li>
+                <li><strong>Attributes:</strong> Variables that belong to a class/object</li>
+                <li><strong>Methods:</strong> Functions that belong to a class</li>
+                <li><strong>__init__:</strong> Constructor method (initializer)</li>
+                <li><strong>self:</strong> Reference to the current instance</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Complete Class Example</h3>
+            <pre><code>class Student:
+    # Class attribute (shared by all instances)
+    school_name = "Python High School"
+    
+    def __init__(self, name, age, grade):
+        # Instance attributes (unique to each object)
+        self.name = name
+        self.age = age
+        self.grade = grade
+        self.subjects = []
+    
+    # Instance method
+    def introduce(self):
+        return f"Hi, I'm {self.name}, {self.age} years old, in grade {self.grade}"
+    
+    # Method with parameters
+    def study(self, subject):
+        return f"{self.name} is studying {subject}"
+    
+    def add_subject(self, subject):
+        self.subjects.append(subject)
+        print(f"{self.name} enrolled in {subject}")
+    
+    def display_info(self):
+        print(f"Student: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Grade: {self.grade}")
+        print(f"School: {Student.school_name}")
+        print(f"Subjects: {', '.join(self.subjects) if self.subjects else 'None'}")
+
+# Creating objects (instances)
+student1 = Student("Alice", 15, 10)
+student2 = Student("Bob", 16, 11)
+
+# Using methods
+print(student1.introduce())
+print(student2.study("Mathematics"))
+
+student1.add_subject("Math")
+student1.add_subject("Science")
+student1.display_info()
+
+# Output:
+# Hi, I'm Alice, 15 years old, in grade 10
+# Bob is studying Mathematics
+# Alice enrolled in Math
+# Alice enrolled in Science
+# Student: Alice
+# Age: 15
+# Grade: 10
+# School: Python High School
+# Subjects: Math, Science</code></pre>
+        </div>
+
+        <h2 id="self">3. Understanding self in Detail</h2>
+
+        <div class="concept-box">
+            <h3>📚 What is self?</h3>
+            <p><code>self</code> is a reference to the <strong>current instance</strong> of a class. It's how an object refers to itself and accesses its own attributes and methods.</p>
+            
+            <h4>Key Points:</h4>
+            <ul>
+                <li><strong>NOT a keyword</strong> (unlike <code>this</code> in Java/C++)</li>
+                <li>Just a <strong>naming convention</strong> (you could use any name, but DON'T!)</li>
+                <li><strong>First parameter</strong> of instance methods</li>
+                <li>Python <strong>automatically passes</strong> it when you call methods</li>
+                <li>Each object has its own <code>self</code> pointing to itself</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 self in Action</h3>
+            <pre><code>class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner      # self.owner belongs to THIS object
+        self.balance = balance  # self.balance belongs to THIS object
+        print(f"Account created for {self.owner}")
+    
+    def deposit(self, amount):
+        self.balance += amount  # Modify THIS object's balance
+        print(f"{self.owner}'s new balance: ${self.balance}")
+    
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"{self.owner} withdrew ${amount}")
+        else:
+            print(f"{self.owner}: Insufficient funds!")
+    
+    def display_info(self):
+        print(f"Owner: {self.owner}, Balance: ${self.balance}")
+
+# Create two separate accounts
+account1 = BankAccount("Alice", 1000)
+account2 = BankAccount("Bob", 500)
+
+# Each object maintains its own data
+account1.deposit(200)    # Alice's balance becomes 1200
+account2.deposit(100)    # Bob's balance becomes 600
+
+account1.display_info()  # Owner: Alice, Balance: $1200
+account2.display_info()  # Owner: Bob, Balance: $600
+
+# They don't interfere with each other!
+account1.withdraw(500)   # Alice's balance becomes 700
+account2.display_info()  # Bob's balance is still 600</code></pre>
+        </div>
+
+        <div class="tip">
+            <h4>🎯 How Python Handles self</h4>
+            <p>When you write <code>account1.deposit(200)</code>, Python internally converts it to:</p>
+            <pre><code>BankAccount.deposit(account1, 200)</code></pre>
+            <p>So <code>self</code> is automatically set to <code>account1</code>!</p>
+        </div>
+
+        <div class="warning">
+            <h4>⚠️ Common Mistakes with self</h4>
+            <ol>
+                <li><strong>Forgetting self parameter:</strong>
+                    <pre><code># ❌ Wrong
+def display():  # Missing self
+    print(self.name)  # Error!
+
+# ✅ Correct
+def display(self):
+    print(self.name)</code></pre>
+                </li>
+                <li><strong>Not using self for attributes:</strong>
+                    <pre><code># ❌ Wrong
+def __init__(self, name):
+    name = name  # Just a local variable!
+
+# ✅ Correct
+def __init__(self, name):
+    self.name = name  # Instance attribute</code></pre>
+                </li>
+            </ol>
+        </div>
+
+        <h2 id="pillars">4. The Four Pillars of OOP</h2>
+
+        <h3 id="encapsulation">4.1 Encapsulation</h3>
+
+        <div class="concept-box">
+            <h4>📚 Encapsulation Concept</h4>
+            <p>Bundling data and methods together, and restricting direct access to some components.</p>
+            
+            <h4>Access Modifiers in Python:</h4>
+            <ul>
+                <li><strong>Public:</strong> Accessible everywhere (default) - <code>self.attribute</code></li>
+                <li><strong>Protected:</strong> Prefix with <code>_</code> (convention) - <code>self._attribute</code></li>
+                <li><strong>Private:</strong> Prefix with <code>__</code> (name mangling) - <code>self.__attribute</code></li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Encapsulation Example</h3>
+            <pre><code>class BankAccount:
+    def __init__(self, account_number, balance):
+        self.account_number = account_number  # Public
+        self._bank_name = "Python Bank"      # Protected
+        self.__balance = balance             # Private
+    
+    # Getter method
+    def get_balance(self):
+        return self.__balance
+    
+    # Setter method with validation
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            return f"Deposited ${amount}. New balance: ${self.__balance}"
+        return "Invalid amount"
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            return f"Withdrew ${amount}. Remaining: ${self.__balance}"
+        return "Insufficient funds or invalid amount"
+
+account = BankAccount("123456", 1000)
+print(account.get_balance())  # 1000
+print(account.deposit(500))   # Deposited $500. New balance: $1500
+
+# Direct access to private attribute won't work
+# print(account.__balance)    # AttributeError
+
+# Can access public and protected
+print(account.account_number)  # 123456
+print(account._bank_name)      # Python Bank (but shouldn't!)</code></pre>
+        </div>
+
+        <div class="practice-box">
+            <h3>✏️ Practice: Password Class</h3>
+            <p><strong>Task:</strong> Create a <code>Password</code> class that:</p>
+            <ul>
+                <li>Stores password privately</li>
+                <li>Has a <code>verify(input_password)</code> method</li>
+                <li>Has a <code>change_password(old, new)</code> method</li>
+                <li>Locks after 3 failed attempts</li>
+                <li>Validates new password is at least 8 characters</li>
+            </ul>
+        </div>
+
+        <h3 id="inheritance">4.2 Inheritance</h3>
+
+        <div class="concept-box">
+            <h4>📚 Inheritance Concept</h4>
+            <p>A mechanism where a new class (child/derived) inherits properties and methods from an existing class (parent/base).</p>
+            
+            <h4>Types of Inheritance:</h4>
+            <ul>
+                <li><strong>Single Inheritance:</strong> Child inherits from one parent</li>
+                <li><strong>Multiple Inheritance:</strong> Child inherits from multiple parents</li>
+                <li><strong>Multilevel Inheritance:</strong> Chain of inheritance (A → B → C)</li>
+                <li><strong>Hierarchical Inheritance:</strong> Multiple children from one parent</li>
+                <li><strong>Hybrid Inheritance:</strong> Combination of above types</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Single Inheritance Example</h3>
+            <pre><code>class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    
+    def make_sound(self):
+        return "Some generic sound"
+    
+    def info(self):
+        return f"{self.name} is a {self.species}"
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Dog")  # Call parent constructor
+        self.breed = breed
+    
+    # Method overriding
+    def make_sound(self):
+        return "Woof! Woof!"
+    
+    # Additional method
+    def fetch(self):
+        return f"{self.name} is fetching the ball"
+
+class Cat(Animal):
+    def __init__(self, name, color):
+        super().__init__(name, "Cat")
+        self.color = color
+    
+    def make_sound(self):
+        return "Meow!"
+
+# Usage
+dog = Dog("Buddy", "Golden Retriever")
+print(dog.info())           # Inherited method: Buddy is a Dog
+print(dog.make_sound())     # Overridden method: Woof! Woof!
+print(dog.fetch())          # New method: Buddy is fetching the ball
+
+cat = Cat("Whiskers", "Orange")
+print(cat.info())           # Whiskers is a Cat
+print(cat.make_sound())     # Meow!</code></pre>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Multiple Inheritance Example</h3>
+            <pre><code>class Flyable:
+    def fly(self):
+        return "Flying high in the sky! ✈️"
+
+class Swimmable:
+    def swim(self):
+        return "Swimming gracefully! 🏊"
+
+class Duck(Animal, Flyable, Swimmable):
+    def __init__(self, name):
+        super().__init__(name, "Duck")
+    
+    def make_sound(self):
+        return "Quack! Quack!"
+
+# Duck inherits from Animal, Flyable, and Swimmable
+duck = Duck("Donald")
+print(duck.make_sound())  # Quack! Quack!
+print(duck.fly())         # Flying high in the sky! ✈️
+print(duck.swim())        # Swimming gracefully! 🏊
+print(duck.info())        # Donald is a Duck</code></pre>
+        </div>
+
+        <div class="practice-box">
+            <h3>✏️ Practice: Shape Hierarchy</h3>
+            <p><strong>Task:</strong> Create a hierarchy:</p>
+            <ul>
+                <li><code>Shape</code> (base class) with <code>area()</code> and <code>perimeter()</code> methods</li>
+                <li><code>Polygon</code> (inherits Shape) with <code>sides</code> attribute</li>
+                <li><code>Triangle</code> (inherits Polygon) - implement area and perimeter</li>
+                <li><code>Rectangle</code> (inherits Polygon) - implement area and perimeter</li>
+                <li><code>Circle</code> (inherits Shape) - implement area and perimeter</li>
+            </ul>
+        </div>
+
+        <h3 id="polymorphism">4.3 Polymorphism</h3>
+
+        <div class="concept-box">
+            <h4>📚 Polymorphism Concept</h4>
+            <p>"Many forms" - the ability of objects to take multiple forms. Same method name behaves differently in different classes.</p>
+            
+            <h4>Types:</h4>
+            <ul>
+                <li><strong>Method Overriding:</strong> Child class redefines parent method</li>
+                <li><strong>Method Overloading:</strong> Same method, different parameters (Python uses default args)</li>
+                <li><strong>Operator Overloading:</strong> Define behavior for operators (+, -, *, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Method Overriding (Polymorphism)</h3>
+            <pre><code>class Shape:
+    def area(self):
+        pass
+    
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14159 * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * 3.14159 * self.radius
+
+# Polymorphism in action - same method, different behavior
+shapes = [Rectangle(5, 3), Circle(4), Rectangle(7, 2)]
+
+for shape in shapes:
+    print(f"Area: {shape.area():.2f}, Perimeter: {shape.perimeter():.2f}")
+
+# Output:
+# Area: 15.00, Perimeter: 16.00
+# Area: 50.27, Perimeter: 25.13
+# Area: 14.00, Perimeter: 18.00</code></pre>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Operator Overloading</h3>
+            <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+    
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+    
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+    
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+v1 = Vector(2, 3)
+v2 = Vector(4, 5)
+
+v3 = v1 + v2  # Uses __add__
+print(v3)     # Vector(6, 8)
+
+v4 = v1 * 3   # Uses __mul__
+print(v4)     # Vector(6, 9)
+
+print(v1 == v2)  # Uses __eq__ - False</code></pre>
+        </div>
+
+        <h3 id="abstraction">4.4 Abstraction</h3>
+
+        <div class="concept-box">
+            <h4>📚 Abstraction Concept</h4>
+            <p>Hiding complex implementation details and showing only essential features. Uses abstract classes and interfaces.</p>
+            
+            <p><strong>Abstract Class:</strong> A class that cannot be instantiated and may contain abstract methods that must be implemented by subclasses.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Abstract Base Class Example</h3>
+            <pre><code>from abc import ABC, abstractmethod
+
+class PaymentProcessor(ABC):
+    @abstractmethod
+    def process_payment(self, amount):
+        """Must be implemented by subclasses"""
+        pass
+    
+    @abstractmethod
+    def refund(self, transaction_id):
+        """Must be implemented by subclasses"""
+        pass
+    
+    # Concrete method (can be used by all subclasses)
+    def validate_amount(self, amount):
+        return amount > 0
+
+class StripePayment(PaymentProcessor):
+    def process_payment(self, amount):
+        if self.validate_amount(amount):
+            return f"Processing ${amount} via Stripe"
+        return "Invalid amount"
+    
+    def refund(self, transaction_id):
+        return f"Refunding transaction {transaction_id} via Stripe"
+
+class PayPalPayment(PaymentProcessor):
+    def process_payment(self, amount):
+        if self.validate_amount(amount):
+            return f"Processing ${amount} via PayPal"
+        return "Invalid amount"
+    
+    def refund(self, transaction_id):
+        return f"Refunding transaction {transaction_id} via PayPal"
+
+# Cannot instantiate abstract class
+# payment = PaymentProcessor()  # TypeError!
+
+# Can instantiate concrete classes
+stripe = StripePayment()
+print(stripe.process_payment(100))  # Processing $100 via Stripe
+
+paypal = PayPalPayment()
+print(paypal.process_payment(50))   # Processing $50 via PayPal</code></pre>
+        </div>
+
+        <h2 id="advanced">5. Advanced OOP Concepts</h2>
+
+        <h3>5.1 Class Methods and Static Methods</h3>
+
+        <div class="concept-box">
+            <h4>📚 Method Types</h4>
+            <ul>
+                <li><strong>Instance Method:</strong> Works with instance (uses <code>self</code>)</li>
+                <li><strong>Class Method:</strong> Works with class (uses <code>cls</code>, decorator <code>@classmethod</code>)</li>
+                <li><strong>Static Method:</strong> Independent utility (no <code>self</code> or <code>cls</code>, decorator <code>@staticmethod</code>)</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 All Method Types Example</h3>
+            <pre><code>class Employee:
+    company_name = "TechCorp"
+    employee_count = 0
+    
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.employee_count += 1
+    
+    # Instance method (uses self)
+    def display_info(self):
+        return f"{self.name} earns ${self.salary}"
+    
+    # Class method (uses cls)
+    @classmethod
+    def change_company_name(cls, new_name):
+        cls.company_name = new_name
+    
+    @classmethod
+    def from_string(cls, emp_string):
+        # Alternative constructor
+        name, salary = emp_string.split('-')
+        return cls(name, int(salary))
+    
+    # Static method (no self or cls)
+    @staticmethod
+    def is_workday(day):
+        return day not in ['Saturday', 'Sunday']
+    
+    @staticmethod
+    def calculate_tax(salary):
+        return salary * 0.2
+
+# Instance method
+emp1 = Employee("Alice", 50000)
+print(emp1.display_info())  # Alice earns $50000
+
+# Class method
+Employee.change_company_name("NewTech")
+print(Employee.company_name)  # NewTech
+
+# Alternative constructor using class method
+emp2 = Employee.from_string("Bob-60000")
+print(emp2.display_info())  # Bob earns $60000
+
+# Static method
+print(Employee.is_workday("Monday"))  # True
+print(Employee.calculate_tax(50000))  # 10000.0</code></pre>
+        </div>
+
+        <h3>5.2 Property Decorators</h3>
+
+        <div class="concept-box">
+            <h4>📚 Properties</h4>
+            <p>Pythonic way to use getters and setters using <code>@property</code>, <code>@setter</code>, <code>@deleter</code> decorators.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Using Properties</h3>
+            <pre><code>class Temperature:
+    def __init__(self, celsius):
+        self._celsius = celsius
+    
+    @property
+    def celsius(self):
+        """Getter for celsius"""
+        return self._celsius
+    
+    @celsius.setter
+    def celsius(self, value):
+        """Setter for celsius with validation"""
+        if value < -273.15:
+            raise ValueError("Temperature below absolute zero!")
+        self._celsius = value
+    
+    @property
+    def fahrenheit(self):
+        """Computed property - converts celsius to fahrenheit"""
+        return (self._celsius * 9/5) + 32
+    
+    @fahrenheit.setter
+    def fahrenheit(self, value):
+        """Set temperature using fahrenheit"""
+        self.celsius = (value - 32) * 5/9
+    
+    @property
+    def kelvin(self):
+        """Computed property - converts celsius to kelvin"""
+        return self._celsius + 273.15
+
+# Usage - looks like attributes but uses methods!
+temp = Temperature(25)
+print(temp.celsius)      # 25 (uses getter)
+print(temp.fahrenheit)   # 77.0 (computed)
+print(temp.kelvin)       # 298.15 (computed)
+
+temp.fahrenheit = 100    # Uses setter
+print(temp.celsius)      # 37.77... (automatically updated)
+
+# Validation works
+try:
+    temp.celsius = -300  # Below absolute zero
+except ValueError as e:
+    print(f"Error: {e}")  # Error: Temperature below absolute zero!</code></pre>
+        </div>
+
+        <h3>5.3 Composition vs Inheritance</h3>
+
+        <div class="concept-box">
+            <h4>📚 When to Use What</h4>
+            <ul>
+                <li><strong>Inheritance:</strong> "is-a" relationship (Dog <em>is-a</em> Animal)</li>
+                <li><strong>Composition:</strong> "has-a" relationship (Car <em>has-a</em> Engine)</li>
+            </ul>
+            <p><strong>Rule of Thumb:</strong> Favor composition over inheritance when possible!</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Composition Example</h3>
+            <pre><code>class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower
+    
+    def start(self):
+        return "Engine started"
+    
+    def stop(self):
+        return "Engine stopped"
+
+class Wheels:
+    def __init__(self, count):
+        self.count = count
+    
+    def rotate(self):
+        return f"{self.count} wheels rotating"
+
+class Car:
+    def __init__(self, brand, horsepower, wheel_count):
+        self.brand = brand
+        self.engine = Engine(horsepower)  # Composition - Car HAS-A Engine
+        self.wheels = Wheels(wheel_count)  # Composition - Car HAS-A Wheels
+    
+    def start(self):
+        return f"{self.brand}: {self.engine.start()}, {self.wheels.rotate()}"
+    
+    def stop(self):
+        return f"{self.brand}: {self.engine.stop()}"
+
+car = Car("Toyota", 200, 4)
+print(car.start())  # Toyota: Engine started, 4 wheels rotating
+print(car.stop())   # Toyota: Engine stopped</code></pre>
+        </div>
+
+        <h2 id="magic">6. Magic Methods (Dunder Methods)</h2>
+
+        <div class="concept-box">
+            <h4>📚 Common Magic Methods</h4>
+            <table>
+                <tr>
+                    <th>Method</th>
+                    <th>Purpose</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>__init__(self, ...)</td>
+                    <td>Constructor</td>
+                    <td>obj = MyClass()</td>
+                </tr>
+                <tr>
+                    <td>__str__(self)</td>
+                    <td>String representation (for print)</td>
+                    <td>print(obj)</td>
+                </tr>
+                <tr>
+                    <td>__repr__(self)</td>
+                    <td>Official representation</td>
+                    <td>repr(obj)</td>
+                </tr>
+                <tr>
+                    <td>__len__(self)</td>
+                    <td>Length</td>
+                    <td>len(obj)</td>
+                </tr>
+                <tr>
+                    <td>__add__(self, other)</td>
+                    <td>Addition (+)</td>
+                    <td>obj1 + obj2</td>
+                </tr>
+                <tr>
+                    <td>__sub__(self, other)</td>
+                    <td>Subtraction (-)</td>
+                    <td>obj1 - obj2</td>
+                </tr>
+                <tr>
+                    <td>__mul__(self, other)</td>
+                    <td>Multiplication (*)</td>
+                    <td>obj1 * obj2</td>
+                </tr>
+                <tr>
+                    <td>__eq__(self, other)</td>
+                    <td>Equality (==)</td>
+                    <td>obj1 == obj2</td>
+                </tr>
+                <tr>
+                    <td>__lt__(self, other)</td>
+                    <td>Less than (<)</td>
+                    <td>obj1 < obj2</td>
+                </tr>
+                <tr>
+                    <td>__getitem__(self, key)</td>
+                    <td>Indexing</td>
+                    <td>obj[key]</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Magic Methods in Action</h3>
+            <pre><code>class Book:
+    def __init__(self, title, pages):
+        self.title = title
+        self.pages = pages
+    
+    def __str__(self):
+        """For print() - user-friendly"""
+        return f"'{self.title}' ({self.pages} pages)"
+    
+    def __repr__(self):
+        """For debugging - unambiguous"""
+        return f"Book(title='{self.title}', pages={self.pages})"
+    
+    def __len__(self):
+        """For len()"""
+        return self.pages
+    
+    def __lt__(self, other):
+        """For < comparison"""
+        return self.pages < other.pages
+    
+    def __add__(self, other):
+        """For + operator"""
+        return Book(f"{self.title} & {other.title}", 
+                   self.pages + other.pages)
+    
+    def __eq__(self, other):
+        """For == comparison"""
+        return self.title == other.title and self.pages == other.pages
+
+book1 = Book("Python Basics", 300)
+book2 = Book("Advanced Python", 450)
+
+print(book1)              # Uses __str__: 'Python Basics' (300 pages)
+print(repr(book1))        # Uses __repr__: Book(title='Python Basics', pages=300)
+print(len(book1))         # Uses __len__: 300
+print(book1 < book2)      # Uses __lt__: True
+combined = book1 + book2  # Uses __add__
+print(combined)           # 'Python Basics & Advanced Python' (750 pages)</code></pre>
+        </div>
+
+        <h2 id="patterns">7. Design Patterns</h2>
+
+        <h3>7.1 Singleton Pattern</h3>
+
+        <div class="concept-box">
+            <h4>📚 Singleton Pattern</h4>
+            <p>Ensures a class has only one instance and provides a global point of access to it.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Singleton Implementation</h3>
+            <pre><code>class DatabaseConnection:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.connection = "Database Connected"
+        return cls._instance
+    
+    def query(self, sql):
+        return f"Executing: {sql}"
+
+# Create multiple "instances"
+db1 = DatabaseConnection()
+db2 = DatabaseConnection()
+
+print(db1 is db2)  # True - same instance!
+print(db1.query("SELECT * FROM users"))
+print(db2.query("SELECT * FROM products"))  # Same connection</code></pre>
+        </div>
+
+        <h3>7.2 Factory Pattern</h3>
+
+        <div class="concept-box">
+            <h4>📚 Factory Pattern</h4>
+            <p>Creates objects without specifying the exact class to create.</p>
+        </div>
+
+        <div class="example-box">
+            <h3>💻 Factory Implementation</h3>
+            <pre><code>class Dog:
+    def speak(self):
+        return "Woof!"
+
+class Cat:
+    def speak(self):
+        return "Meow!"
+
+class Bird:
+    def speak(self):
+        return "Tweet!"
+
+class AnimalFactory:
+    @staticmethod
+    def create_animal(animal_type):
+        if animal_type == "dog":
+            return Dog()
+        elif animal_type == "cat":
+            return Cat()
+        elif animal_type == "bird":
+            return Bird()
+        else:
+            raise ValueError(f"Unknown animal type: {animal_type}")
+
+# Use factory to create animals
+animal1 = AnimalFactory.create_animal("dog")
+animal2 = AnimalFactory.create_animal("cat")
+animal3 = AnimalFactory.create_animal("bird")
+
+print(animal1.speak())  # Woof!
+print(animal2.speak())  # Meow!
+print(animal3.speak())  # Tweet!</code></pre>
+        </div>
+
+        <h2 id="projects">8. Real-World Projects</h2>
+
+        <h3>8.1 Library Management System</h3>
+
+        <div class="example-box">
+            <h3>💻 Complete Library System</h3>
+            <pre><code>from datetime import datetime, timedelta
+
+class Book:
+    def __init__(self, isbn, title, author, copies):
+        self.isbn = isbn
+        self.title = title
+        self.author = author
+        self.total_copies = copies
+        self.available_copies = copies
+    
+    def __str__(self):
+        return f"{self.title} by {self.author} (ISBN: {self.isbn})"
+
+class Member:
+    def __init__(self, member_id, name, email):
+        self.member_id = member_id
+        self.name = name
+        self.email = email
+        self.borrowed_books = []
+    
+    def can_borrow(self):
+        return len(self.borrowed_books) < 3
+
+class Transaction:
+    def __init__(self, book, member):
+        self.book = book
+        self.member = member
+        self.borrow_date = datetime.now()
+        self.due_date = self.borrow_date + timedelta(days=14)
+        self.return_date = None
+    
+    def calculate_fine(self):
+        if self.return_date and self.return_date > self.due_date:
+            days_late = (self.return_date - self.due_date).days
+            return days_late * 1  # $1 per day
+        return 0
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = {}
+        self.members = {}
+        self.transactions = []
+    
+    def add_book(self, book):
+        self.books[book.isbn] = book
+        print(f"Added: {book}")
+    
+    def register_member(self, member):
+        self.members[member.member_id] = member
+        print(f"Registered: {member.name}")
+    
+    def borrow_book(self, isbn, member_id):
+        book = self.books.get(isbn)
+        member = self.members.get(member_id)
+        
+        if not book or not member:
+            return "Book or member not found"
+        
+        if book.available_copies == 0:
+            return "No copies available"
+        
+        if not member.can_borrow():
+            return "Member has reached borrowing limit (3 books)"
+        
+        book.available_copies -= 1
+        transaction = Transaction(book, member)
+        self.transactions.append(transaction)
+        member.borrowed_books.append(book)
+        
+        return f"Book borrowed successfully. Due date: {transaction.due_date.date()}"
+    
+    def return_book(self, isbn, member_id):
+        book = self.books.get(isbn)
+        member = self.members.get(member_id)
+        
+        if book in member.borrowed_books:
+            book.available_copies += 1
+            member.borrowed_books.remove(book)
+            
+            for trans in self.transactions:
+                if trans.book == book and trans.member == member and not trans.return_date:
+                    trans.return_date = datetime.now()
+                    fine = trans.calculate_fine()
+                    if fine > 0:
+                        return f"Book returned. Fine: ${fine}"
+                    return "Book returned successfully"
+        
+        return "Transaction not found"
+
+# Usage Example
+library = Library("City Library")
+
+# Add books
+book1 = Book("123", "Python Programming", "John Doe", 3)
+book2 = Book("456", "Data Science", "Jane Smith", 2)
+library.add_book(book1)
+library.add_book(book2)
+
+# Register members
+member1 = Member("M001", "Alice", "alice@email.com")
+member2 = Member("M002", "Bob", "bob@email.com")
+library.register_member(member1)
+library.register_member(member2)
+
+# Borrow books
+print(library.borrow_book("123", "M001"))
+print(library.borrow_book("456", "M001"))
+
+# Return books
+print(library.return_book("123", "M001"))</code></pre>
+        </div>
+
+        <h3>8.2 E-commerce System</h3>
+
+        <div class="example-box">
+            <h3>💻 E-commerce Classes</h3>
+            <pre><code>class Product:
+    def __init__(self, product_id, name, price, stock):
+        self.product_id = product_id
+        self.name = name
+        self.price = price
+        self.stock = stock
+    
+    def update_stock(self, quantity):
+        self.stock += quantity
+    
+    def __str__(self):
+        return f"{self.name} - ${self.price} ({self.stock} in stock)"
+
+class CartItem:
+    def __init__(self, product, quantity):
+        self.product = product
+        self.quantity = quantity
+    
+    def get_subtotal(self):
+        return self.product.price * self.quantity
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+    
+    def add_item(self, product, quantity):
+        if product.stock >= quantity:
+            self.items.append(CartItem(product, quantity))
+            return f"Added {quantity} x {product.name}"
+        return "Insufficient stock"
+    
+    def remove_item(self, product_id):
+        self.items = [item for item in self.items 
+                     if item.product.product_id != product_id]
+    
+    def get_total(self):
+        return sum(item.get_subtotal() for item in self.items)
+    
+    def display_cart(self):
+        print("\n=== Shopping Cart ===")
+        for item in self.items:
+            print(f"{item.product.name} x {item.quantity} = ${item.get_subtotal():.2f}")
+        print(f"Total: ${self.get_total():.2f}")
+        print("=" * 30)
+
+class Customer:
+    def __init__(self, customer_id, name, email):
+        self.customer_id = customer_id
+        self.name = name
+        self.email = email
+        self.cart = ShoppingCart()
+        self.orders = []
+    
+    def place_order(self):
+        if not self.cart.items:
+            return "Cart is empty"
+        
+        order = Order(self, self.cart.items[:])
+        self.orders.append(order)
+        
+        # Update stock
+        for item in self.cart.items:
+            item.product.update_stock(-item.quantity)
+        
+        self.cart.items = []
+        return f"Order placed successfully. Order ID: {order.order_id}"
+
+class Order:
+    order_counter = 1000
+    
+    def __init__(self, customer, items):
+        Order.order_counter += 1
+        self.order_id = Order.order_counter
+        self.customer = customer
+        self.items = items
+        self.status = "Pending"
+        self.total = sum(item.get_subtotal() for item in items)
+    
+    def update_status(self, status):
+        self.status = status
+        print(f"Order {self.order_id} status: {status}")
+
+# Usage Example
+product1 = Product("P001", "Laptop", 999.99, 10)
+product2 = Product("P002", "Mouse", 29.99, 50)
+product3 = Product("P003", "Keyboard", 79.99, 30)
+
+customer = Customer("C001", "Bob", "bob@email.com")
+print(customer.cart.add_item(product1, 1))
+print(customer.cart.add_item(product2, 2))
+print(customer.cart.add_item(product3, 1))
+
+customer.cart.display_cart()
+print(customer.place_order())</code></pre>
+        </div>
+
+        <h2 id="solutions">9. Complete Solutions to Practice Questions</h2>
+
+        <div class="solution-box">
+            <h3>✅ Solution: Book Class with Discount</h3>
+            <pre><code>class Book:
+    def __init__(self, title, author, pages, price):
+        self.title = title
+        self.author = author
+        self.pages = pages
+        self.price = price
+    
+    def display_info(self):
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+        print(f"Pages: {self.pages}")
+        print(f"Price: ${self.price:.2f}")
+    
+    def apply_discount(self, percentage):
+        if 0 < percentage <= 100:
+            discount_amount = self.price * (percentage / 100)
+            self.price -= discount_amount
+            print(f"✓ Discount of {percentage}% applied!")
+            print(f"New price: ${self.price:.2f}")
+        else:
+            print("Invalid discount percentage")
+
+# Test
+book = Book("Python Programming", "John Doe", 450, 49.99)
+book.display_info()
+print("\nApplying 20% discount...")
+book.apply_discount(20)
+print("\nAfter discount:")
+book.display_info()</code></pre>
+        </div>
+
+        <div class="solution-box">
+            <h3>✅ Solution: Password Class</h3>
+            <pre><code>class Password:
+    def __init__(self, password):
+        self.__password = password  # Private
+        self.__attempts = 0
+        self.__max_attempts = 3
+    
+    def verify(self, input_password):
+        if self.__attempts >= self.__max_attempts:
+            return "🔒 Account locked! Too many failed attempts."
+        
+        if input_password == self.__password:
+            self.__attempts = 0  # Reset on success
+            return "✓ Password verified successfully!"
+        else:
+            self.__attempts += 1
+            remaining = self.__max_attempts - self.__attempts
+            if remaining > 0:
+                return f"✗ Incorrect password. {remaining} attempts remaining."
+            else:
+                return "✗ Account locked! Too many failed attempts."
+    
+    def change_password(self, old_password, new_password):
+        if old_password == self.__password:
+            if len(new_password) >= 8:
+                self.__password = new_password
+                self.__attempts = 0
+                return "✓ Password changed successfully!"
+            else:
+                return "✗ New password must be at least 8 characters."
+        else:
+            return "✗ Incorrect old password."
+    
+    def reset_attempts(self, admin_code):
+        if admin_code == "ADMIN123":
+            self.__attempts = 0
+            return "✓ Attempts reset by admin."
+        return "✗ Invalid admin code."
+
+# Test
+user_password = Password("SecurePass123")
+print(user_password.verify("WrongPass"))      # Incorrect
+print(user_password.verify("WrongPass2"))     # Incorrect
+print(user_password.verify("SecurePass123"))  # Correct
+print(user_password.change_password("SecurePass123", "NewPass456"))</code></pre>
+        </div>
+
+        <div class="solution-box">
+            <h3>✅ Solution: Shape Hierarchy</h3>
+            <pre><code>import math
+
+class Shape:
+    def __init__(self, name):
+        self.name = name
+    
+    def area(self):
+        raise NotImplementedError("Subclass must implement area()")
+    
+    def perimeter(self):
+        raise NotImplementedError("Subclass must implement perimeter()")
+    
+    def display_info(self):
+        print(f"\n{self.name}")
+        print(f"Area: {self.area():.2f}")
+        print(f"Perimeter: {self.perimeter():.2f}")
+
+class Polygon(Shape):
+    def __init__(self, name, sides):
+        super().__init__(name)
+        self.sides = sides
+
+class Triangle(Polygon):
+    def __init__(self, base, height, side1, side2, side3):
+        super().__init__("Triangle", 3)
+        self.base = base
+        self.height = height
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+    
+    def area(self):
+        return 0.5 * self.base * self.height
+    
+    def perimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+class Rectangle(Polygon):
+    def __init__(self, length, width):
+        super().__init__("Rectangle", 4)
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+# Test
+shapes = [
+    Triangle(6, 4, 5, 5, 6),
+    Rectangle(5, 3),
+    Circle(5)
+]
+
+for shape in shapes:
+    shape.display_info()</code></pre>
+        </div>
+
+        <div class="solution-box">
+            <h3>✅ Solution: ComplexNumber with Operator Overloading</h3>
+            <pre><code>import math
+
+class ComplexNumber:
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
+    
+    def __str__(self):
+        if self.imaginary >= 0:
+            return f"{self.real} + {self.imaginary}i"
+        else:
+            return f"{self.real} - {abs(self.imaginary)}i"
+    
+    def __add__(self, other):
+        return ComplexNumber(
+            self.real + other.real,
+            self.imaginary + other.imaginary
+        )
+    
+    def __sub__(self, other):
+        return ComplexNumber(
+            self.real - other.real,
+            self.imaginary - other.imaginary
+        )
+    
+    def __mul__(self, other):
+        # (a + bi) * (c + di) = (ac - bd) + (ad + bc)i
+        real = self.real * other.real - self.imaginary * other.imaginary
+        imag = self.real * other.imaginary + self.imaginary * other.real
+        return ComplexNumber(real, imag)
+    
+    def __eq__(self, other):
+        return (self.real == other.real and 
+                self.imaginary == other.imaginary)
+    
+    def __abs__(self):
+        return math.sqrt(self.real**2 + self.imaginary**2)
+    
+    def conjugate(self):
+        return ComplexNumber(self.real, -self.imaginary)
+
+# Test
+z1 = ComplexNumber(3, 4)
+z2 = ComplexNumber(1, 2)
+
+print(f"z1 = {z1}")
+print(f"z2 = {z2}")
+print(f"z1 + z2 = {z1 + z2}")
+print(f"z1 - z2 = {z1 - z2}")
+print(f"z1 * z2 = {z1 * z2}")
+print(f"|z1| = {abs(z1):.2f}")
+print(f"z1* = {z1.conjugate()}")</code></pre>
+        </div>
+
+        <h2 id="interview">10. Common Interview Questions</h2>
+
+        <div class="concept-box">
+            <h3>🎯 Top 15 OOP Interview Questions</h3>
+            
+            <h4>1. What are the four pillars of OOP?</h4>
+            <p><strong>Answer:</strong> Encapsulation, Inheritance, Polymorphism, and Abstraction.</p>
+            
+            <h4>2. Difference between __init__ and __new__?</h4>
+            <p><strong>Answer:</strong> <code>__new__</code> creates the instance (called first), <code>__init__</code> initializes it (called second). <code>__new__</code> returns the instance, <code>__init__</code> doesn't return anything.</p>
+            
+            <h4>3. What is MRO (Method Resolution Order)?</h4>
+            <p><strong>Answer:</strong> The order in which Python looks for methods in a hierarchy of classes, especially with multiple inheritance. Use <code>ClassName.__mro__</code> or <code>ClassName.mro()</code> to view it.</p>
+            
+            <h4>4. Explain composition vs inheritance.</h4>
+            <p><strong>Answer:</strong> Inheritance is "is-a" relationship (Dog is-a Animal). Composition is "has-a" relationship (Car has-a Engine). Favor composition for flexibility and loose coupling.</p>
+            
+            <h4>5. What are abstract classes?</h4>
+            <p><strong>Answer:</strong> Classes that cannot be instantiated and may contain abstract methods that must be implemented by subclasses. Use the <code>ABC</code> module and <code>@abstractmethod</code> decorator.</p>
+            
+            <h4>6. How does Python implement encapsulation?</h4>
+            <p><strong>Answer:</strong> Using naming conventions: public (no prefix), protected (<code>_prefix</code>), private (<code>__prefix</code> with name mangling).</p>
+            
+            <h4>7. Class variables vs instance variables?</h4>
+            <p><strong>Answer:</strong> Class variables are shared by all instances (defined in class body). Instance variables are unique to each object (defined in <code>__init__</code> with <code>self</code>).</p>
+            
+            <h4>8. What is duck typing?</h4>
+            <p><strong>Answer:</strong> "If it walks like a duck and quacks like a duck, it's a duck." Python doesn't check types, just whether objects have required methods/attributes.</p>
+            
+            <h4>9. Name 5 magic methods.</h4>
+            <p><strong>Answer:</strong> <code>__init__</code>, <code>__str__</code>, <code>__repr__</code>, <code>__add__</code>, <code>__len__</code>, <code>__eq__</code>, <code>__getitem__</code>, <code>__iter__</code>, <code>__call__</code>, <code>__enter__</code></p>
+            
+            <h4>10. What is the difference between @classmethod and @staticmethod?</h4>
+            <p><strong>Answer:</strong> <code>@classmethod</code> receives the class as first argument (<code>cls</code>) and can access/modify class state. <code>@staticmethod</code> doesn't receive class or instance, just a utility function grouped with the class.</p>
+            
+            <h4>11. What is method overriding?</h4>
+            <p><strong>Answer:</strong> When a child class provides a different implementation of a method that exists in the parent class.</p>
+            
+            <h4>12. What is super() used for?</h4>
+            <p><strong>Answer:</strong> To call methods from parent class, especially useful in <code>__init__</code> to initialize parent class attributes.</p>
+            
+            <h4>13. What is the difference between __str__ and __repr__?</h4>
+            <p><strong>Answer:</strong> <code>__str__</code> is for end-users (readable), <code>__repr__</code> is for developers (unambiguous, ideally recreatable).</p>
+            
+            <h4>14. Can you have private methods in Python?</h4>
+            <p><strong>Answer:</strong> Yes, using double underscore prefix (<code>__method</code>). Python applies name mangling to make them harder to access from outside.</p>
+            
+            <h4>15. What are properties and why use them?</h4>
+            <p><strong>Answer:</strong> Properties allow you to use getter/setter methods while maintaining attribute-like syntax. They provide validation, computed values, and encapsulation while keeping clean syntax.</p>
+        </div>
+
+        <h2 id="best">11. Best Practices</h2>
+
+        <div class="concept-box">
+            <h3>🌟 SOLID Principles</h3>
+            <ol>
+                <li><strong>Single Responsibility:</strong> A class should have one reason to change</li>
+                <li><strong>Open/Closed:</strong> Open for extension, closed for modification</li>
+                <li><strong>Liskov Substitution:</strong> Subclasses should be substitutable for base classes</li>
+                <li><strong>Interface Segregation:</strong> Many specific interfaces better than one general</li>
+                <li><strong>Dependency Inversion:</strong> Depend on abstractions, not concretions</li>
+            </ol>
+        </div>
+
+        <div class="concept-box">
+            <h3>✨ General Best Practices</h3>
+            <ul>
+                <li>Use meaningful class and method names</li>
+                <li>Keep classes focused and cohesive (Single Responsibility)</li>
+                <li>Favor composition over inheritance</li>
+                <li>Use properties for computed attributes</li>
+                <li>Document classes with docstrings</li>
+                <li>Follow PEP 8 naming conventions</li>
+                <li>Use type hints for clarity (Python 3.5+)</li>
+                <li>Write unit tests for classes</li>
+                <li>Keep methods short and focused</li>
+                <li>Use abstract base classes for interfaces</li>
+                <li>Avoid deep inheritance hierarchies</li>
+                <li>Make attributes private when appropriate</li>
+            </ul>
+        </div>
+
+        <div class="concept-box">
+            <h3>📝 Naming Conventions (PEP 8)</h3>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Convention</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Classes</td>
+                    <td>PascalCase</td>
+                    <td>MyClass, BankAccount</td>
+                </tr>
+                <tr>
+                    <td>Methods/Functions</td>
+                    <td>snake_case</td>
+                    <td>calculate_total, get_name</td>
+                </tr>
+                <tr>
+                    <td>Constants</td>
+                    <td>UPPER_CASE</td>
+                    <td>MAX_SIZE, DEFAULT_VALUE</td>
+                </tr>
+                <tr>
+                    <td>Private</td>
+                    <td>__double_underscore</td>
+                    <td>__balance, __password</td>
+                </tr>
+                <tr>
+                    <td>Protected</td>
+                    <td>_single_underscore</td>
+                    <td>_internal_method</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="tip">
+            <h3>💡 Quick Tips</h3>
+            <ul>
+                <li><strong>Start Simple:</strong> Don't over-engineer. Add complexity only when needed.</li>
+                <li><strong>Test Early:</strong> Write tests as you develop classes.</li>
+                <li><strong>Refactor Often:</strong> Improve code structure regularly.</li>
+                <li><strong>Read Code:</strong> Study well-written OOP code from popular libraries.</li>
+                <li><strong>Practice:</strong> Build real projects to solidify concepts.</li>
+            </ul>
+        </div>
+
+        <h2>12. Practice Projects</h2>
+
+        <div class="practice-box">
+            <h3>🎯 Beginner Level Projects</h3>
+            <ol>
+                <li><strong>Bank Account System:</strong> Create classes for different account types (Savings, Checking) with deposit, withdraw, transfer operations.</li>
+                <li><strong>Student Grade Manager:</strong> Track students, courses, grades with GPA calculation.</li>
+                <li><strong>Todo List Application:</strong> Tasks with priority, due dates, categories.</li>
+                <li><strong>Contact Book:</strong> Store and manage contacts with search functionality.</li>
+            </ol>
+        </div>
+
+        <div class="practice-box">
+            <h3>🎯 Intermediate Level Projects</h3>
+            <ol>
+                <li><strong>Hotel Booking System:</strong> Rooms, reservations, customers, pricing.</li>
+                <li><strong>Restaurant Order System:</strong> Menu items, orders, bills, inventory.</li>
+                <li><strong>Social Media Post System:</strong> Users, posts, comments, likes, followers.</li>
+                <li><strong>Parking Lot System:</strong> Vehicles, parking spots, tickets, payment.</li>
+            </ol>
+        </div>
+
+        <div class="practice-box">
+            <h3>🎯 Advanced Level Projects</h3>
+            <ol>
+                <li><strong>Online Learning Platform:</strong> Courses, lessons, students, instructors, progress tracking.</li>
+                <li><strong>Hospital Management System:</strong> Patients, doctors, appointments, medical records.</li>
+                <li><strong>Inventory Management System:</strong> Products, suppliers, orders, warehouses.</li>
+                <li><strong>Chess Game:</strong> Board, pieces, moves, game logic.</li>
+            </ol>
+        </div>
+
+        <h2>13. Conclusion</h2>
+
+        <div class="header-section" style="margin-top: 40px;">
+            <h2 style="color: white; border: none;">🎉 Congratulations!</h2>
+            <p>You've completed the comprehensive guide to Object-Oriented Programming in Python!</p>
+            
+            <h3 style="color: white; margin-top: 30px;">What You've Learned:</h3>
+            <ul style="text-align: left; max-width: 800px; margin: 20px auto;">
+                <li>Core OOP concepts (classes, objects, self)</li>
+                <li>The four pillars (Encapsulation, Inheritance, Polymorphism, Abstraction)</li>
+                <li>Advanced concepts (class methods, properties, composition)</li>
+                <li>Magic methods and operator overloading</li>
+                <li>Design patterns and best practices</li>
+                <li>Real-world project implementations</li>
+                <li>Complete solutions to practice problems</li>
+            </ul>
+            
+            <h3 style="color: white; margin-top: 30px;">Next Steps:</h3>
+            <ol style="text-align: left; max-width: 800px; margin: 20px auto;">
+                <li>Practice all the examples in this guide</li>
+                <li>Complete the practice projects</li>
+                <li>Build your own projects using OOP</li>
+                <li>Study design patterns in depth</li>
+                <li>Explore advanced topics like metaclasses</li>
+                <li>Read other people's code to see OOP in action</li>
+                <li>Contribute to open-source projects</li>
+            </ol>
+            
+            <p style="margin-top: 30px; font-size: 1.3em;"><strong>"The only way to learn a new programming language is by writing programs in it."</strong><br>- Dennis Ritchie</p>
+            
+            <p style="margin-top: 20px; font-size: 1.1em;">Keep Coding, Keep Learning! 🚀</p>
+        </div>
+
+        <div class="note" style="margin-top: 40px;">
+            <h3>📥 How to Save This Guide</h3>
+            <ul>
+                <li><strong>Save as HTML:</strong> Press Ctrl+S (Windows/Linux) or Cmd+S (Mac)</li>
+                <li><strong>Print to PDF:</strong> Press Ctrl+P (Windows/Linux) or Cmd+P (Mac), then select "Save as PDF"</li>
+                <li><strong>Bookmark:</strong> Add this page to your bookmarks for quick access</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h3>📚 Additional Resources</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 10px 0;">📖 Python Official Documentation: <a href="https://docs.python.org" target="_blank">docs.python.org</a></li>
+                <li style="margin: 10px 0;">🎓 Real Python: <a href="https://realpython.com" target="_blank">realpython.com</a></li>
+                <li style="margin: 10px 0;">🎨 Design Patterns: <a href="https://refactoring.guru" target="_blank">refactoring.guru</a></li>
+                <li style="margin: 10px 0;">💻 Practice: <a href="https://leetcode.com" target="_blank">leetcode.com</a></li>
+            </ul>
+        </div>
+
+        <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 2px solid #ddd; color: #666;">
+            <p><strong>Python OOP Complete Guide - Zero to Hero</strong></p>
+            <p>Created with ❤️ for Python learners worldwide</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">© 2024 - All concepts, examples, and solutions included</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
